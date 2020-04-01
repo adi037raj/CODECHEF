@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+#define ll long long
+
+void swap(ll int* a, ll int* b)
+{
+	ll int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+int main()
+{
+	ll int t, a, b, c, d;
+	scanf("%lld",&t);
+	while(t--)
+	{
+		ll int A,B,A1,B1;
+		scanf("%lld %lld",&A,&B);
+		
+		a = A/10;
+		b = A%10;
+		
+		c = B/10;
+		d = B%10;
+		
+		if(a==0 && c==0)
+		{
+			;
+		}
+		else if(a==0 || c==0)
+		{
+			if(c==0)
+			{
+				swap(&b,&d);
+				swap(&c,&a);
+			}
+			if(b>c)
+			{
+				
+				A = c;
+				B = 10*b + d;
+			}
+		}
+		else if(a>d)
+		{
+			if(c<b)
+			{
+				A = 10*a + c;
+				B = 10*b + d;
+			}
+		}
+		else
+		{
+			if(c>b)
+			{
+				A = 10*d + b;
+				B = 10*c + a;
+			}
+			else
+			{
+				A = 10*d + b;
+				B = 10*c + a;
+				
+				A1 = 10*a + c;
+				B1 = 10*b + d;
+				
+				if(A+B>A1+B1)
+				{
+					printf("%lld\n",A+B);
+				}
+				else
+				{
+					printf("%lld\n",A1+B1);
+				}
+				continue;
+			}
+		}
+		printf("%lld\n",A+B);
+		continue;
+	}
+	return 0;
+}
