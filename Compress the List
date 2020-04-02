@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n;cin>>n;
+		int a[n],i;
+		for(i=0;i<n;i++)
+		cin>>a[i];
+	
+	int cont=1;
+	for(i=0;i<n;i++)
+	{
+		cont=0;
+		int start=a[i];
+		while(a[i+1]==a[i]+1)
+		{
+		
+		cont++;
+		i++;}
+		
+		if(cont>=2)
+		{
+			if(i==n-1)
+			cout<<start<<"..."<<a[i];
+			else
+			cout<<start<<"..."<<a[i]<<",";
+		}
+		
+		else if(cont==1)
+		{
+			cout<<start<<","<<a[i];
+			if(i!=n-1)
+			cout<<",";
+		}
+		
+		else
+		{
+		if(i==n-1)
+		cout<<start;
+		else
+		cout<<start<<",";
+	}
+	}
+	cout<<endl;	
+		
+		
+	}
+}
